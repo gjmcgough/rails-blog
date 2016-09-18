@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    puts "#{params}{{{{{{{{{{{}}}}}}}}}}}}}}}}}"
     if @post.save
       redirect_to action: "show", id: @post.id
     else

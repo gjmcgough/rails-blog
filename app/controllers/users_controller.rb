@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to action: "show", id: @user.id
+      session[:user_id] = @user.id
+      redirect_to '/posts'
     else
       render "new"
     end
@@ -14,8 +15,8 @@ class UsersController < ApplicationController
 
   private
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 
 end
