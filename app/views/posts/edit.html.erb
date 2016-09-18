@@ -1,0 +1,12 @@
+<h1>EDIT!!</h1>
+
+<%= form_tag("/posts/#{@post.id}") do %>
+  <input type="hidden" name="_method" value="put">
+  <input type="text" name="post[title]" value="<%= @post.title %>">
+  <input type="submit" value="Submit Edit">
+<% end %>
+
+<%= form_tag("/posts/#{@post.id}") do %>
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Post">
+<% end %>
